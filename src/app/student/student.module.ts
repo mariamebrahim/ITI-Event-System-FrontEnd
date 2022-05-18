@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RegisterComponent } from './register/register.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -7,9 +9,12 @@ import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
  
+  
+    RegisterComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ]
 })
 export class StudentModule { }

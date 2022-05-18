@@ -9,6 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { StudentModule } from './student/student.module';
 import { FormsModule } from '@angular/forms';
+import { NotFoundComponent } from './not-found/not-found.component';
+
 
 
 @NgModule({
@@ -17,14 +19,19 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
+    NotFoundComponent,
+
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    
   ],exports:[
+    
+    
     
 
   ],
