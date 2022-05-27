@@ -1,8 +1,9 @@
 export class Student {
     constructor(
-        public email:string,
-        public password:string,
-        public Events:[]
-    ){}
+        public id :number,
+        public email :string,
+        public username :string,
+        public password :string
+    )
+    {}
 }
-

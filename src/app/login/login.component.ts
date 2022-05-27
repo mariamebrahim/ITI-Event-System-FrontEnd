@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -8,10 +9,39 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  data = {
+    email:"",
+    password:""
+  }
+
+  constructor(public authSrv:AuthenticationService, public router:Router) { }
 
   ngOnInit(): void {
-    
+  }
+
+  login(event:any,e:string,p:string)
+  {
+    event.preventDefault();
+    this.data.email = e;
+    this.data.password = p;
+    this.authSrv.login(this.data).subscribe(res=>{
+      
+      if(res.role == "Admin")
+      {
+        sessionStorage.setItem("Token", res.token);
+        this.router.navigateByUrl("/admin/home");
+      }
+      else if(res.role == "Student")
+      {
+        sessionStorage.setItem("Token", res.token);
+        this.router.navigateByUrl("/student/home");
+      }
+      else if(res.role == "Speaker")
+      {
+        sessionStorage.setItem("Token", res.token);
+        this.router.navigateByUrl("/speaker/home");
+      }
+    })
   }
 
 }
